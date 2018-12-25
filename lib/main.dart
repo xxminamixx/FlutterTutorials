@@ -5,12 +5,13 @@ void main() => runApp(BulidingLayouts());
 class BulidingLayouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void pressed() {
+      print("ボタン押下されました");
+    }
 
     /* ボタンを返す */
     Column buildButtonColumn(IconData icon, String label) {
-      Color color = Theme
-          .of(context)
-          .primaryColor;
+      Color color = Theme.of(context).primaryColor;
 
       return Column(
         mainAxisSize: MainAxisSize.min,
@@ -68,7 +69,6 @@ class BulidingLayouts extends StatelessWidget {
       ),
     );
 
-
     // ボタンカラムを生成
     Widget buttonSection = Container(
       child: Row(
@@ -98,28 +98,29 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Top Lakes'),
-        ),
-        body: ListView(
-          children: [
-            Image.asset(
-              'images/lake.jpg',
-              width: 600.0,
-              height: 240.0,
-              fit: BoxFit.cover,
-            ),
-            titleSection,
-            buttonSection,
-            textSection,
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            title: Text('Top Lakes'),
+          ),
+          body: ListView(
+            children: [
+              Image.asset(
+                'images/lake.jpg',
+                width: 600.0,
+                height: 240.0,
+                fit: BoxFit.cover,
+              ),
+              titleSection,
+              buttonSection,
+              textSection,
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: pressed,
+            child: Icon(Icons.favorite),
+          )),
     );
-
   }
 }
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -127,7 +128,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-        //
+      //
       theme: ThemeData(
         // This is the theme of your application.
         // Try running your application with "flutter run". You'll see the
