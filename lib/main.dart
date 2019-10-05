@@ -16,6 +16,18 @@ class MyApp extends StatelessWidget {
     Logger.debug(addDynamic(10, 9));
     Logger.debug(addDynamic("ジェネリクス", "で足し算"));
     
+    var list = [
+      "りんご",
+      "ごりら",
+      "らっぱ",
+      "ぱんつ",
+      "みつき",
+      "きんぎょ"
+    ];
+
+    list.forEach((word) => Logger.debug(word));
+    list.map((word) => Logger.debug(word));
+    
     return new MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
