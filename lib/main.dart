@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Logger.dart';
+import 'package:flutter_app/Home.dart';
 
 void main() {
   // MyAppクラスを実行する
@@ -11,51 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Logger.debug(addInt(10, 20));
-    Logger.debug(addString("あああ", "いいい"));
-    Logger.debug(addDynamic(10, 9));
-    Logger.debug(addDynamic("ジェネリクス", "で足し算"));
-    
-    var list = [
-      "りんご",
-      "ごりら",
-      "らっぱ",
-      "ぱんつ",
-      "みつき",
-      "きんぎょ"
-    ];
 
-    list.forEach((word) => Logger.debug(word));
-    list.map((word) => Logger.debug(word));
-    
+
     return new MaterialApp(
       title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello, Flutter!'),
-        ),
-        body: Text(
-          'Hello Flutter World!!',
-          style: TextStyle(fontSize: 32.0),
-        ),
-      ),
+      home: HomeWidget()
     );
   }
 
-  /// Intの足し算関数
-  int addInt(int value1, int value2) {
-    return value1 + value2;
-  }
 
-  /// 文字列の連結
-  String addString(String value1, String value2) {
-      return value1 + value2;
-  }
-
-  /// ジェネリクスな足し算メソッド
-  addDynamic(value1, value2) {
-    return value1 + value2;
-  }
 
 }
 
