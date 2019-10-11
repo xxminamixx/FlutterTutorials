@@ -23,8 +23,8 @@ class HomeWidget extends StatelessWidget {
     ];
 
     var widgetList = new List<Widget>();
+    // widgetListにTextを詰め込む
     for (String value in list) {
-      // widgetListにTextを詰め込む
       widgetList.add(textWidget(value));
     }
 
@@ -38,11 +38,12 @@ class HomeWidget extends StatelessWidget {
         body: Container(
           width: size.width,
           height: size.height,
-          color: Colors.blue[200],
+          color: Colors.white,
           child: Column(
             children:widgetList
           )
-        )
+        ),
+      floatingActionButton: floatingActionButton(),
     );
   }
 
@@ -66,6 +67,35 @@ class HomeWidget extends StatelessWidget {
     return Text(
         text,
         style: TextStyle(fontSize: fontSize, fontFamily: "Hiragino Sans")
+    );
+  }
+
+  Widget rowWidget(List<Widget> widgets) {
+    return Row(
+      children: widgets
+    );
+  }
+
+  Widget floatingActionButton() {
+    return Builder(
+      builder: (context) =>
+          FloatingActionButton(
+            onPressed: () {
+              showSnackBar(context);
+            },
+            child: Icon(Icons.favorite),
+            backgroundColor: Colors.green,
+          )
+    );
+  }
+
+  /// SnackBarを表示する
+  void showSnackBar(BuildContext context) {
+    final scaffold = Scaffold.of(context);
+    scaffold.showSnackBar(
+        SnackBar(
+            content: textWidget("ボタンが押されました")
+        )
     );
   }
 }
